@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{%block content %}
+
+<h1>{{object.title}}</h1>
+<p>{{object.content}}</p>   
+{% if request.user.is_authenticated %}
+    {% if request.user.is_staff %}
+       <a href="delete.html">{{slug}}EDIT</a>
+       <a href='{{object.get_delete_url}}'>delete</a>
+    {% endif %}
+{% endif %}
+{% endblock %}
+
+
